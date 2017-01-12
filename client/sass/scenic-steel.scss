@@ -1,0 +1,107 @@
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-family: verdana, sans-serif;
+	font-size: 12px;
+}
+
+$scenic-green: #3e6b57;
+$scenic-light-green: #a7c3b7;
+$light-green: #f2f7f5;
+
+a { color: white; text-decoration: none; }
+
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1024px;
+	height: 100%;
+}
+
+.header { 
+	p {     
+		padding: 10px;
+	    font-size: 1em;
+	    border-radius: 5px;
+	    //font-style: italic;  
+
+	    //font-family: fantasy, 'Dancing Script', cursive;
+	    //font-family: 'Dancing Script', cursive;
+		//font-family: 'Tangerine', cursive;
+
+	    padding:0px;
+    } 
+}
+
+.footer { 
+	clear: both; 
+	background: $light-green; 
+	color: black;
+	padding: 10px; 
+	border-radius: 5px; 
+
+	.address { float: left; }
+
+	.links { text-align: right; a { color: black; } }
+}
+
+.products  {
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 478px;
+
+	.product { 
+		display: inline-block;
+		width: 246px;  
+		margin: 5px;
+		padding: 0px;
+
+		img { width: 100%; }
+
+		.text {
+			position: relative;
+			top: -3px;
+			width: 100%;
+			font-size: 1.2em;
+	        text-align: right;
+		    background: $scenic-green;
+		    color: white;
+		    padding: 10px;
+		    margin: 0px;
+		    box-sizing: border-box;
+	    }
+    }
+}
+
+.product-detail {
+	table td { vertical-align: top; }
+	img {  padding: 20px; }
+}
+
+.menu {
+	list-style: none;
+	float: right;
+
+	li { 
+		display: inline-block;
+		color: $scenic-green;
+	    width: 100px;
+	    height: 25px;
+	    line-height: 25px;
+	    background: white;
+	    padding: 5px;
+	    margin: 5px;
+	    text-align: center;
+	    text-transform: uppercase;
+	    cursor: default;
+
+	    &.active { background: $scenic-light-green; }
+	}
+}
+
+.contact-us {
+	a { color: blue; }
+}
+
