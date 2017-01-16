@@ -47,10 +47,14 @@ a { color: white; text-decoration: none; }
 	.links { text-align: right; a { color: black; } }
 }
 
-.products  {
-	margin-left: auto;
+.body {
+		margin-left: auto;
 	margin-right: auto;
 	min-height: 478px;
+}
+
+.products  {
+
 
 	.product { 
 		display: inline-block;

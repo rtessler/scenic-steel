@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import ProductDetail from  './productDetail.js';
 import News from  './news.js';
 import ContactUs from  './contactus.js';
 
@@ -122,42 +123,6 @@ class Product extends React.Component {
   }
 }
 
-class ProductDetail extends React.Component {
-
-  render() {
-
-    return (
-          <div className='product-detail'>
-
-            <br />
-
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <div className='name'>{this.props.data.name}</div>
-
-                    <hr />
-
-                    <div className='description'>{this.props.data.description}</div>
-
-                    <br />
-
-                    <div className='price'>Price: {this.props.data.price}</div>
-                  </td>
-
-                  <td>
-                    <img src={'images/' + this.props.data.image} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-          </div>
-        )
-  }
-}
-
 class Body extends React.Component {
 
   constructor(props) {
@@ -172,6 +137,20 @@ class Body extends React.Component {
   render() {
 
     switch (this.props.menu_id) {
+
+    case 1: 
+
+        var rows = this.props.products.map((p, i) => {
+
+          return (<div key={i}>
+                  <ProductDetail data={p} />
+                  </div>);
+        });
+
+        return ( <div  >{rows}</div> );
+
+        break;
+
     case 2:
     
         return ( <News data={ 'Watch this space' } /> );
@@ -186,7 +165,6 @@ class Body extends React.Component {
 
       if ( this.props.product_id == -1)
       {
-        
         var rows = this.props.products.map((p, i) => {
 
           return (<div key={i} className="product" onClick={ () => this.onProductClick(p.id) } >
@@ -219,7 +197,7 @@ class Page extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {menu_id: 1, product_id: -1};
+    this.state = {menu_id: 0, product_id: -1};
 
     this.home = this.home.bind(this);
     this.menuClick = this.menuClick.bind(this);
@@ -243,7 +221,9 @@ class Page extends React.Component {
     return (
       <div className='wrapper' >
           <Header menuClick={this.menuClick} home={this.home} />
-          <Body menu_id={this.state.menu_id} products={this.props.products} product_id={this.state.product_id} setProduct={this.setProduct}/>
+          <div className='body'>
+            <Body menu_id={this.state.menu_id} products={this.props.products} product_id={this.state.product_id} setProduct={this.setProduct}/>
+          </div>
           <Footer />
       </div>
     )
